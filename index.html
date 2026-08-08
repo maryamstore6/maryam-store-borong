@@ -66,6 +66,24 @@
   .row-bot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
   .order{background:var(--accent);color:#fff;border:0;border-radius:9px;padding:10px 16px;font-weight:700;font-size:.85rem;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:6px}
   .order:hover{filter:brightness(1.07)}
+  .card{cursor:pointer}
+
+  /* ---------- Modal butiran produk ---------- */
+  .modal{position:fixed;inset:0;background:rgba(10,10,10,.55);z-index:80;display:none;align-items:flex-end;justify-content:center;padding:0}
+  .modal.open{display:flex}
+  .modal-box{background:#fff;border-radius:18px 18px 0 0;width:min(680px,100%);max-height:92vh;overflow:auto;position:relative;padding:20px 20px 24px}
+  .modal-x{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;background:#f3f4f6;border:0;font-size:1.1rem;font-weight:800;cursor:pointer;z-index:3}
+  .modal-img{aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#fafafa,#f1f5f9)}
+  .modal-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .modal-strip{display:flex;gap:8px;margin-top:10px}
+  .modal-strip img{width:56px;height:56px;border-radius:10px;object-fit:cover;cursor:pointer;border:2px solid transparent;opacity:.75}
+  .modal-strip img.on{border-color:var(--accent);opacity:1}
+  .modal h3{font-size:1.15rem;margin-top:12px;line-height:1.3}
+  .modal .mdesc{font-size:.88rem;color:var(--muted);line-height:1.55;margin-top:8px;white-space:pre-line}
+  .modal .mtiers{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .modal .mprice{font-size:1.3rem;font-weight:800;color:var(--accent);margin-top:10px}
+  .modal .morder{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;border-radius:11px;padding:14px;margin-top:14px;min-height:48px}
+  @media (min-width:680px){.modal{align-items:center;padding:20px}.modal-box{border-radius:18px;max-height:88vh}}
 
   footer{border-top:1px solid var(--line);background:#fff;margin-top:auto}
   .foot{max-width:1080px;margin:0 auto;padding:30px 20px;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between}
@@ -131,6 +149,20 @@
   <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.8 1 3.8 1.6 5.8 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.7-.3-.4c-1-1.7-1.6-3.6-1.6-5.6C5.1 9.3 9.9 4.5 16 4.5S26.9 9.3 26.9 15 22.1 24.8 16 24.8zm5.4-7.1c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
 </a>
 
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div class="modal-img"><img id="mImg" alt="Produk"></div>
+    <div class="modal-strip" id="mStrip"></div>
+    <h3 id="mName"></h3>
+    <div style="margin-top:6px"><span class="badge b4" id="mBadge"></span></div>
+    <p class="mdesc" id="mDesc"></p>
+    <div class="mtiers" id="mTiers"></div>
+    <div class="mprice" id="mPrice"></div>
+    <a class="morder" id="mOrder" target="_blank" rel="noopener">💬 Order WhatsApp</a>
+  </div>
+</div>
+
 <script src="config.js"></script>
 <script src="products.js"></script>
 <script>
@@ -167,17 +199,17 @@ function renderCats(){
 function tierChips(tier){ return (tier||"").split("•").map(t => `<span class="tier">${t.trim()}</span>`).join(""); }
 function cardHTML(p){
   return `
-    <article class="card">
+    <article class="card" onclick="openModal('${p.nama.replace(/'/g,"\\'")}')">
       <div class="thumb-main"><img src="${p.cover}" alt="${p.nama}" loading="lazy"></div>
       <div class="card-body">
-        <div class="badge-row"><span class="badge ${p.cat==='bawah2'?'b2':'b4'}">${catNama[p.cat]}</span></div>
+        <div class="badge-row"><span class="badge ${p.cat==='bawah2'?'b2':'b4'}">${catNama[p.cat]}</span><span style="font-size:.68rem;color:var(--muted)">2 gambar</span></div>
         <h3>${p.nama}</h3>
         ${p.desc ? `<p class="desc">${p.desc}</p>` : ""}
         <div class="tiers">${tierChips(p.tier)}</div>
         <div class="price-line"><span class="dari">Dari</span><span class="harga">RM ${Number(p.harga).toFixed(2)}</span></div>
         <div class="row-bot">
-          <span style="font-size:.72rem;color:var(--muted)">/unit borong</span>
-          <a class="order" target="_blank" rel="noopener"
+          <span style="font-size:.72rem;color:var(--muted)">Klik untuk butiran</span>
+          <a class="order" target="_blank" rel="noopener" onclick="event.stopPropagation()"
              href="https://wa.me/${C.wa}?text=${encodeURIComponent("Assalamualaikum, saya nak order: " + p.nama + " — berapa harga borong?")}">Order</a>
         </div>
       </div>
@@ -186,6 +218,32 @@ function cardHTML(p){
 function render(){
   const list = filter==="semua" ? produk : produk.filter(p => p.cat === filter);
   document.getElementById("semua").innerHTML = list.map(cardHTML).join("");
+  window._produk = produk;
+}
+function openModal(nama){
+  const p = window._produk.find(x => x.nama === nama);
+  if(!p) return;
+  const strip = [p.cover, p.asal].filter((v,i,a) => a.indexOf(v) === i).map((src,i) =>
+    `<img class="${i===0?'on':''}" src="${src}" data-src="${src}" onclick="modalSwap(this)">`).join("");
+  document.getElementById("mImg").src = p.cover;
+  document.getElementById("mStrip").innerHTML = strip;
+  document.getElementById("mName").textContent = p.nama;
+  document.getElementById("mBadge").textContent = catNama[p.cat];
+  document.getElementById("mDesc").textContent = p.desc || "";
+  document.getElementById("mTiers").innerHTML = tierChips(p.tier);
+  document.getElementById("mPrice").textContent = "Dari RM " + Number(p.harga).toFixed(2) + " /unit";
+  document.getElementById("mOrder").href = "https://wa.me/" + C.wa + "?text=" + encodeURIComponent("Assalamualaikum, saya nak order: " + p.nama + " — berapa harga borong?");
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function modalSwap(el){
+  document.querySelectorAll("#mStrip img").forEach(i => i.classList.remove("on"));
+  el.classList.add("on");
+  document.getElementById("mImg").src = el.dataset.src;
+}
+function closeModal(){
+  document.getElementById("modal").classList.remove("open");
+  document.body.style.overflow = "";
 }
 document.querySelectorAll(".nav-links a[data-cat]").forEach(a => a.onclick = () => { filter = a.dataset.cat; renderCats(); render(); });
 
