@@ -11,6 +11,6 @@ const produk = [
   { nama:"Plastic Drink Bottles With Clip Lids", cat:"bawah2", harga:1.3, tier:"RM1.50/500pcs • RM1.40/1000pcs • RM1.30/3000pcs", cover:"images/covers/clip-lids.webp", asal:"images/mDY8V2NR9ZXZSP37CH0ffkuBgsR9qZoyAZ2bZf0X.webp" },
   { nama:"Double Cup Drink Bottles", cat:"bawah4", harga:2.69, tier:"RM2.89/500pcs • RM2.79/1000pcs • RM2.69/3000pcs", cover:"images/covers/double-cup.webp", asal:"images/PBjB4I6Lb0k1Kd0bzv3VLAd5jhOcJCrlPYciuiMO.webp" },
   { nama:"Double Cup Bottles with handle", cat:"bawah4", harga:2.9, tier:"RM3.1/500pcs • RM3.0/1000pcs • RM2.90/3000pcs", cover:"images/covers/double-cup-handle.webp", asal:"images/CLRu2ISxwrqTwAREJ5SWPsmNKmSVZf5vWpboQtbs.webp" },
-  { nama:"Shaker Bar 350ml", cat:"bawah2", harga:1.53, tier:"RM1.53/104pcs • RM1.50/500pcs • RM1.4/5000pcs", cover:"", asal:"" },
+  { nama:"Shaker Bar 350ml", cat:"bawah4", harga:1.53, tier:"RM1.53/104PCS, RM1.50/500PCS, RM1.40/5,000PCS", cover:"images/covers/WhatsApp-Image-2026-07-11-at-9.26.18-PM-1.webp", asal:"images/IMG_3560.HEIC.jpg" },
 ];
 const catLabel = { bawah2:"Bawah RM2", bawah4:"Bawah RM4" };
