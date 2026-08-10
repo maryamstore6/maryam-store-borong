@@ -223,8 +223,9 @@ function render(){
 function openModal(nama){
   const p = window._produk.find(x => x.nama === nama);
   if(!p) return;
-  const strip = [p.cover, p.asal].filter((v,i,a) => a.indexOf(v) === i).map((src,i) =>
-    `<img class="${i===0?'on':''}" src="${src}" data-src="${src}" onclick="modalSwap(this)">`).join("");
+  const gal = (p.galeri && p.galeri.length) ? p.galeri : [p.cover, p.asal].filter(Boolean);
+  const strip = gal.filter((v,i,a) => a.indexOf(v) === i).map((src,i) =>
+    `<img class="${i===0?'on':''}" src="${src}" data-src="${src}" onclick="modalSwap(this)" loading="lazy">`).join("");
   document.getElementById("mImg").src = p.cover;
   document.getElementById("mStrip").innerHTML = strip;
   document.getElementById("mName").textContent = p.nama;
