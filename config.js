@@ -12,6 +12,6 @@ const SITE_CFG = {
   "hero2": {
     "img": "images/hero2.webp",
     "title": "CETAK LOGO PERCUMA!",
-    "sub": "Harga mula RM1.10 — sesuai kedai, gym, farmasi & hadiah korporat."
+    "sub": "Harga bermula RM1.10"
   }
 };
