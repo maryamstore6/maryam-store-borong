@@ -21,22 +21,35 @@
   .nav{background:#fff;border-bottom:1px solid var(--line);padding:10px 16px;text-align:center}
   .nav a{color:var(--ink);text-decoration:none;font-weight:600;margin:0 10px;font-size:.9rem}
   .hero{text-align:center;padding:26px 16px 10px}
-  .hero h1{font-size:1.5rem;line-height:1.35;color:var(--ink);margin-bottom:8px}
+  .hero h1{font-size:1.5rem;line-height:1.35;margin-bottom:8px}
   .hero p{color:var(--muted);font-size:.98rem;max-width:620px;margin:0 auto 16px}
   .btn-wa{display:inline-block;background:var(--wa);color:#fff!important;font-weight:800;text-decoration:none;padding:14px 30px;border-radius:12px;font-size:1.05rem;box-shadow:0 4px 14px rgba(37,211,102,.35)}
   .badge{display:inline-block;background:var(--soft,#fff1f2);color:var(--accent);border-radius:20px;padding:4px 14px;font-size:.78rem;font-weight:700;margin-bottom:10px}
   .trust{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 6px}
   .trust span{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 14px;font-size:.82rem;font-weight:600}
-  .prod{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.04);display:flex;gap:16px;align-items:center}
+  .prod{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.04);display:flex;gap:16px;align-items:center;cursor:pointer}
   .prod img{width:130px;height:130px;object-fit:cover;border-radius:12px;border:1px solid var(--line);flex:0 0 130px}
   .prod .info{flex:1}
   .prod h3{font-size:1rem;margin-bottom:2px}
   .prod .price{color:var(--accent);font-weight:800;font-size:1.05rem}
   .prod .tag{display:inline-block;background:var(--soft,#fff1f2);color:var(--accent);border-radius:10px;padding:1px 8px;font-size:.72rem;font-weight:700;margin-left:5px}
   .prod .note{font-size:.84rem;color:var(--muted);margin-top:4px}
+  .prod .gal{font-size:.75rem;color:var(--accent);margin-top:6px;font-weight:600}
   .cta{display:block;background:var(--wa);color:#fff;text-align:center;font-weight:800;font-size:1.1rem;text-decoration:none;padding:16px 20px;border-radius:14px;margin:20px 0 6px;box-shadow:0 4px 14px rgba(37,211,102,.35)}
   .cta-sub{text-align:center;color:var(--muted);font-size:.82rem;margin-bottom:14px}
   .foot{text-align:center;color:var(--muted);font-size:.8rem;margin:24px 0 8px}
+  /* MODAL galeri (macam product card) */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:99;padding:20px}
+  .modal.open{display:flex}
+  .modal-box{background:#fff;border-radius:16px;max-width:520px;width:100%;padding:16px;position:relative;max-height:90vh;overflow-y:auto}
+  .modal-x{position:absolute;top:8px;right:8px;background:var(--line);border:none;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer;z-index:2}
+  .modal-img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#f5f5f5}
+  .modal-strip{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 4px;scroll-snap-type:x mandatory}
+  .modal-strip img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer;flex:0 0 64px;scroll-snap-align:start}
+  .modal-strip img.act{border-color:var(--accent)}
+  .modal-box h3{font-size:1.05rem;margin:10px 0 4px}
+  .modal-price{color:var(--accent);font-weight:800}
+  .morder{display:block;background:var(--wa);color:#fff;text-align:center;font-weight:700;text-decoration:none;padding:12px;border-radius:10px;margin-top:12px}
   @media(max-width:520px){.prod{flex-direction:column;text-align:center}.prod img{width:180px;height:180px}}
 </style>
 </head>
@@ -52,7 +65,7 @@
     <span class="badge">🔥 UNTUK PENGUSAHA SUPPLEMENT</span>
     <h1>Shaker Free Gift Bawah RM2<br>Custom Logo PERCUMA</h1>
     <p>Harga dari RM1.10/pcs — pelanggan supplement anda bancuh guna botol jenama ANDA, hari-hari.</p>
-    <a class="btn-wa" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20pengusaha%20supplement%2C%20nak%20quote%20harga%20shaker%20free%20gift">📲 WhatsApp Sekarang</a>
+    <a class="btn-wa" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20-%20Botol%20Shaker%20-%20berapa%20harga%20borong%3F">📲 WhatsApp Sekarang</a>
   </div>
 
   <div class="trust">
@@ -62,37 +75,84 @@
     <span>🎨 Logo PERCUMA</span>
   </div>
 
-  <div class="prod">
+  <div class="prod" onclick="openGal(0)">
     <img src="images/Shaker-Bar-350-ml-1786524559-af0337.webp" alt="Shaker Bar 350ml - ready stock Melaka">
     <div class="info">
       <h3>1️⃣ Shaker Bar 350ml <span class="tag">READY STOCK</span></h3>
       <p class="price">Dari RM1.40/pcs</p>
       <p class="note">4 warna • Food grade • Pos esok dari Melaka</p>
+      <p class="gal">🖼️ Klik untuk lihat galeri (8 gambar)</p>
     </div>
   </div>
 
-  <div class="prod">
+  <div class="prod" onclick="openGal(1)">
     <img src="images/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp" alt="Shaker Botol Ekonomi 380ml - paling murah">
     <div class="info">
       <h3>2️⃣ Shaker Botol Ekonomi 380ml <span class="tag">PALING MURAH</span></h3>
       <p class="price">Dari RM1.10/pcs</p>
       <p class="note">5 warna • Cetakan 1-2 sisi • Import China 4-6 minggu</p>
+      <p class="gal">🖼️ Klik untuk lihat galeri (9 gambar)</p>
     </div>
   </div>
 
-  <div class="prod">
+  <div class="prod" onclick="openGal(2)">
     <img src="images/Untitled-design-11-1786514979-c18e01.webp" alt="Premium Shaker 250ml anti bocor">
     <div class="info">
       <h3>3️⃣ Premium Shaker 250ml <span class="tag">PREMIUM</span></h3>
       <p class="price">Dari RM1.60/pcs</p>
       <p class="note">Silicone • No leak 100% • Nampak premium</p>
+      <p class="gal">🖼️ Klik untuk lihat galeri (6 gambar)</p>
     </div>
   </div>
 
-  <a class="cta" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20pengusaha%20supplement%2C%20nak%20quote%20harga%20shaker%20free%20gift">📲 WhatsApp — Dapatkan Harga Borong</a>
+  <a class="cta" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20-%20Botol%20Shaker%20-%20berapa%20harga%20borong%3F">📲 WhatsApp — Dapatkan Harga Borong</a>
   <p class="cta-sub">017-605 5349 • MOQ 104pcs • Pos Citylink RM10</p>
 
   <p class="foot">© 2026 Maryam Store, Melaka | <a href="/" style="color:var(--accent)">Katalog penuh →</a></p>
 </div>
+
+<!-- MODAL GALERI -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeGal()">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeGal()">✕</button>
+    <img class="modal-img" id="mImg" alt="Produk">
+    <div class="modal-strip" id="mStrip"></div>
+    <h3 id="mName"></h3>
+    <p class="modal-price" id="mPrice"></p>
+    <a class="morder" id="mOrder" target="_blank" rel="noopener">💬 Order WhatsApp</a>
+  </div>
+</div>
+
+<script>
+// Galeri penuh dari product card (sama dengan products.json)
+const GAL = [
+  { nama: "Shaker Bar 350ml — Dari RM1.40/pcs",
+    imgs: ["images/Shaker-Bar-350-ml-1786524559-af0337.webp","images/covers/1.webp","images/2-1786515006-73d61f.webp","images/shaker-transparent-350.webp","images/photo_2026-08-11_11-53-41.webp","images/photo_2026-08-11_11-53-35.webp","images/shaker-warna-2.webp","images/shaker-warna-1.webp"] },
+  { nama: "Shaker Botol Ekonomi 380ml — Dari RM1.10/pcs",
+    imgs: ["images/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp","images/photo_2026-08-11_12-13-57.webp","images/6.webp","images/7.webp","images/8.webp","images/photo_2026-08-11_12-14-01.webp","images/OCTaIeLjSldtJi8Fsv73LRxHHUjvsrsatTuZVRCn.webp","images/bXwKYBcT0dpSQYLmkaOxTWsdD66C9WsQtzSJTzpN.webp","images/photo_2026-08-11_12-14-05.webp"] },
+  { nama: "Premium Shaker 250ml — Dari RM1.60/pcs",
+    imgs: ["images/Untitled-design-11-1786514979-c18e01.webp","images/2.webp","images/premium-250-1.webp","images/premium-250-2.webp","images/premium-250-3.webp","images/premium-shaker-250.webp"] }
+];
+let cur = 0, gi = 0;
+
+function openGal(i){
+  cur = i; gi = 0;
+  renderModal();
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeGal(){
+  document.getElementById("modal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+function renderModal(){
+  const g = GAL[cur];
+  document.getElementById("mImg").src = g.imgs[gi];
+  document.getElementById("mName").textContent = g.nama;
+  document.getElementById("mOrder").href = "https://wa.me/60176055349?text=" + encodeURIComponent("Assalamualaikum, saya nak order - " + g.nama.split("—")[0].trim() + " - berapa harga borong?");
+  document.getElementById("mStrip").innerHTML = g.imgs.map((s, i) =>
+    `<img src="${s}" class="${i===gi?'act':''}" onclick="event.stopPropagation();gi=${i};renderModal()" alt="gambar ${i+1}">`).join("");
+}
+</script>
 </body>
 </html>
