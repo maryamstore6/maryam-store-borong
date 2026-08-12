@@ -6,8 +6,18 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://borongshaker.com/#produk</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://borongshaker.com/tentang-kami.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://borongshaker.com/cara-order.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://borongshaker.com/faq.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
