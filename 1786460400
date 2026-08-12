@@ -1,0 +1,4 @@
+  File "<string>", line 5
+    rows = cur.execute(SELECT
+                      ^
+SyntaxError: '(' was never closed
