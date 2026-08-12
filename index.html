@@ -141,6 +141,18 @@
     .nav{padding:10px 14px}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+  .urgent{background:linear-gradient(90deg,#e11d48,#be123c);color:#fff;text-align:center;padding:10px 16px;font-weight:700;font-size:.92rem;letter-spacing:.2px}
+  .urgent a{color:#fff;text-decoration:underline}
+  .proof{background:#fff;border-bottom:1px solid var(--line);padding:12px 16px}
+  .proof .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;align-items:center;max-width:1080px}
+  .proof span{font-size:.85rem;color:var(--ink);font-weight:600;display:flex;align-items:center;gap:6px}
+  .testi{max-width:1080px;margin:0 auto;padding:28px 20px 8px}
+  .testi h2{font-size:1.25rem;text-align:center;margin-bottom:16px}
+  .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .testi-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+  .testi-card p{font-size:.9rem;color:#374151;margin-bottom:10px}
+  .testi-card .who{font-weight:700;font-size:.85rem;color:var(--accent)}
+  .testi-card .role{font-size:.78rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -151,9 +163,38 @@
   </div>
 </header>
 
+<div class="urgent">⚡ <strong>READY STOCK Shaker 350ml di Melaka</strong> — pos esok! <a href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20shaker%20ready%20stock" target="_blank" rel="noopener">Order sekarang →</a></div>
+
 <section class="wrap hero" id="hero"></section>
+<section class="proof"><div class="wrap">
+  <span>✅ 100+ peniaga guna produk kami</span>
+  <span>🏭 Harga terus dari kilang</span>
+  <span>🎨 Custom logo PERCUMA</span>
+  <span>📦 Pos seluruh Malaysia — Citylink RM10</span>
+</div></section>
 <section class="wrap cats" id="cats"></section>
 <main class="wrap grid" id="semua"></main>
+
+<section class="testi">
+  <h2>💬 Apa Kata Pelanggan Kami</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p>"Order 5 bag shaker, sampai 2 hari je. Kemas & murah — dah repeat order 3 kali."</p>
+      <div class="who">Cik Ra</div>
+      <div class="role">Peniaga online — Kelantan</div>
+    </div>
+    <div class="testi-card">
+      <p>"Custom logo print cantik, staff friendly. Sesuai untuk produk kami."</p>
+      <div class="who">Maizura</div>
+      <div class="role">MYCAR — custom print</div>
+    </div>
+    <div class="testi-card">
+      <p>"Ambil sendiri di Melaka, senang & jimat pos. Stok sentiasa ada."</p>
+      <div class="who">Adinda</div>
+      <div class="role">TudungSarung — Melaka</div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="foot">
@@ -242,7 +283,7 @@ function cardHTML(p){
         <div class="price-line"><span class="dari">Dari</span><span class="harga">RM ${Number(p.harga).toFixed(2)}</span></div>
         <div class="row-bot">
           <a class="order" target="_blank" rel="noopener" onclick="event.stopPropagation()"
-             href="https://wa.me/${C.wa}?text=${encodeURIComponent("Assalamualaikum, saya nak order: " + p.nama + " — berapa harga borong?")}">Order</a>
+             href="https://wa.me/${C.wa}?text=${encodeURIComponent("Assalamualaikum, saya berminat dengan: " + p.nama + "\n\nNama: \nSyarikat/Kedai: \nKuantiti anggaran: \nCustom logo: Ya / Tidak")}">Order</a>
         </div>
       </div>
     </article>`;
@@ -265,7 +306,7 @@ function openModal(nama){
   document.getElementById("mDesc").textContent = p.desc || "";
   document.getElementById("mTiers").innerHTML = tierChips(p.tier);
   document.getElementById("mPrice").textContent = "Dari RM " + Number(p.harga).toFixed(2) + " /unit";
-  document.getElementById("mOrder").href = "https://wa.me/" + C.wa + "?text=" + encodeURIComponent("Assalamualaikum, saya nak order: " + p.nama + " — berapa harga borong?");
+  document.getElementById("mOrder").href = "https://wa.me/" + C.wa + "?text=" + encodeURIComponent("Assalamualaikum, saya berminat dengan: " + p.nama + "\n\nNama: \nSyarikat/Kedai: \nKuantiti anggaran: \nCustom logo: Ya / Tidak");
   document.getElementById("modal").classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -279,7 +320,7 @@ function closeModal(){
   document.body.style.overflow = "";
 }
 
-const waTxt = encodeURIComponent("Assalamualaikum, saya nak tanya harga borong " + C.brand);
+const waTxt = encodeURIComponent("Assalamualaikum, saya berminat dengan borong shaker/botol dari " + C.brand + "\n\nNama: \nSyarikat/Kedai: \nProduk diminati: \nKuantiti anggaran: \nCustom logo: Ya / Tidak");
 document.getElementById("waFloat").href = "https://wa.me/" + C.wa + "?text=" + waTxt;
 document.getElementById("footWa").href = "https://wa.me/" + C.wa;
 document.getElementById("footTel").href = "tel:+60" + C.wa;
