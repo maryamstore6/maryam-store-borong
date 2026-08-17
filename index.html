@@ -96,10 +96,10 @@ src="https://www.facebook.com/tr?id=3054577544595377&ev=PageView&noscript=1"/></
   .cat-pill .cnt{font-size:.68rem;opacity:.75}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:22px auto 60px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .18s,transform .18s}
+  .card{content-visibility:auto;contain-intrinsic-size:auto 340px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .18s,transform .18s}
   .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
   .thumb-main{aspect-ratio:1/1;background:linear-gradient(160deg,#fafafa,#f1f5f9);overflow:hidden}
-  .thumb-main img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb-main img{aspect-ratio:1/1;width:100%;height:100%;object-fit:cover;display:block}
   .card-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:7px;flex:1}
   .badge-row{display:none}
   .badge{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 8px;border-radius:999px}
@@ -351,7 +351,7 @@ document.title = C.brand + " — " + C.tagline;
 const heroEl = document.getElementById("hero");
 heroEl.innerHTML = [C.hero1, C.hero2].map(h => `
   <a class="hero-card ${h.align === 'right' ? 'r' : ''}" href="#semua">
-    <img src="${h.img}" alt="${h.title}" fetchpriority="high" loading="eager">
+    <img src="${h.img}" alt="${h.title}" fetchpriority="high" loading="eager" decoding="async" width="800" height="600" style="background:#f3f4f6">
     <div class="hero-txt">
       <h2>${h.title}</h2><p>${h.sub}</p>
       <span class="cta">Lihat Produk →</span>
@@ -378,7 +378,7 @@ function tierChips(tier){ return (tier||"").split("•").map(t => `<span class="
 function cardHTML(p){
   return `
     <article class="card" onclick="openModal('${p.nama.replace(/'/g,"\\'")}')">
-      <div class="thumb-main"><img src="${p.cover}" alt="${p.nama}" loading="lazy"></div>
+      <div class="thumb-main"><img src="${p.cover}" alt="${p.nama}" loading="lazy" decoding="async" width="600" height="600" style="background:#f3f4f6"></div>
       <div class="card-body">
         <h3>${p.nama}</h3>
         <div class="tiers">${tierChips(p.tier)}</div>
@@ -400,7 +400,7 @@ function openModal(nama){
   if(!p) return;
   const gal = (p.galeri && p.galeri.length) ? p.galeri : [p.cover, p.asal].filter(Boolean);
   const strip = gal.filter((v,i,a) => a.indexOf(v) === i).map((src,i) =>
-    `<img class="${i===0?'on':''}" src="${src}" data-src="${src}" alt="${h.nama}" onclick="modalSwap(this)" loading="lazy">`).join("");
+    `<img class="${i===0?'on':''}" src="${src}" data-src="${src}" alt="${h.nama}" onclick="modalSwap(this)" loading="lazy" decoding="async">`).join("");
   document.getElementById("mImg").src = p.cover;
   document.getElementById("mStrip").innerHTML = strip;
   document.getElementById("mName").textContent = p.nama;
