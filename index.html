@@ -400,7 +400,7 @@ function openModal(nama){
   if(!p) return;
   const gal = (p.galeri && p.galeri.length) ? p.galeri : [p.cover, p.asal].filter(Boolean);
   const strip = gal.filter((v,i,a) => a.indexOf(v) === i).map((src,i) =>
-    `<img class="${i===0?'on':''}" src="${src}" data-src="${src}" alt="${h.nama}" onclick="modalSwap(this)" loading="lazy" decoding="async">`).join("");
+    `<img class="${i===0?'on':''}" src="${src}" data-src="${src}" alt="${p.nama}" onclick="modalSwap(this)" loading="lazy" decoding="async">`).join("");
   document.getElementById("mImg").src = p.cover;
   document.getElementById("mStrip").innerHTML = strip;
   document.getElementById("mName").textContent = p.nama;
