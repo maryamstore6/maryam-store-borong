@@ -157,12 +157,9 @@ src="https://www.facebook.com/tr?id=3054577544595377&ev=PageView&noscript=1"/></
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
   .urgent{background:linear-gradient(90deg,#e11d48,#be123c);color:#fff;text-align:center;padding:10px 0;font-weight:700;font-size:.92rem;letter-spacing:.2px;overflow:hidden;white-space:nowrap}
-  .urgent-inner{display:inline-block;padding:0 16px;animation:marquee 30s linear infinite}
+  .urgent-inner{display:inline-block;padding:0 16px;animation:marquee 30s linear infinite;will-change:transform}
   @keyframes marquee{
-    0%{transform:translateX(100%)}
-    8%{transform:translateX(0)}
-    38%{transform:translateX(0)}
-    70%{transform:translateX(-50%)}
+    0%{transform:translateX(0)}
     100%{transform:translateX(-50%)}
   }
   .urgent a{color:#fff;text-decoration:underline}
