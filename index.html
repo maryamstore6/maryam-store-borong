@@ -156,7 +156,9 @@ src="https://www.facebook.com/tr?id=3054577544595377&ev=PageView&noscript=1"/></
     .nav{padding:10px 14px}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
-  .urgent{background:linear-gradient(90deg,#e11d48,#be123c);color:#fff;text-align:center;padding:10px 16px;font-weight:700;font-size:.92rem;letter-spacing:.2px}
+  .urgent{background:linear-gradient(90deg,#e11d48,#be123c);color:#fff;text-align:center;padding:10px 0;font-weight:700;font-size:.92rem;letter-spacing:.2px;overflow:hidden;white-space:nowrap}
+  .urgent-inner{display:inline-block;padding:0 16px;animation:marquee 14s linear infinite}
+  @keyframes marquee{from{transform:translateX(105%)}to{transform:translateX(-105%)}}
   .urgent a{color:#fff;text-decoration:underline}
   .proof{background:#fff;border-bottom:1px solid var(--line);padding:12px 16px}
   .proof .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;align-items:center;max-width:1080px}
@@ -199,7 +201,7 @@ src="https://www.facebook.com/tr?id=3054577544595377&ev=PageView&noscript=1"/></
   </div>
 </header>
 
-<div class="urgent">⚡ <strong>READY STOCK Shaker 350ml di Melaka</strong> — pos esok! <a href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20shaker%20ready%20stock" target="_blank" rel="noopener">Order sekarang →</a></div>
+<div class="urgent"><span class="urgent-inner">⚡ <strong>READY STOCK Shaker 350ml di Melaka</strong> — pos esok! <a href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20shaker%20ready%20stock" target="_blank" rel="noopener">Order sekarang →</a> &nbsp;&nbsp;•&nbsp;&nbsp; ⚡ <strong>READY STOCK Shaker 350ml di Melaka</strong> — pos esok! <a href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20shaker%20ready%20stock" target="_blank" rel="noopener">Order sekarang →</a></span></div>
 
 <section class="wrap hero" id="hero">
   <h1 style="font-size:1.5rem;text-align:center;padding:20px 16px 0;line-height:1.35">Borong Shaker &amp; Botol Minuman — Harga Kilang, Custom Logo PERCUMA</h1></section>
