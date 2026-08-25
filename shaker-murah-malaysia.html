@@ -30,10 +30,12 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
 .nav-brand .dot { width:8px; height:8px; border-radius:50%; background: var(--color-lime-pulse); display:inline-block; }
 .nav-cta { background: var(--color-forest-depths); color: var(--color-snow-white); border:none; border-radius: var(--radius-full); padding: 12px 24px; font-size: 14px; font-weight: 500; cursor:pointer; text-decoration:none; display:inline-block; }
 
-/* HERO — 50/50 split, left text right image */
-.hero { max-width: var(--page-max); margin: 0 auto; padding: 64px 24px; display:grid; grid-template-columns: 1fr 1fr; gap:48px; align-items:center; }
-.hero h1 { font-size: 48px; font-weight: 350; line-height: 1.1; letter-spacing: -0.72px; margin-bottom: 24px; color: var(--color-forest-depths); }
-.hero p { font-size: 16px; font-weight: 400; line-height: 1.5; color: var(--color-forest-depths); margin-bottom: 32px; max-width: 480px; }
+/* HERO — full-bleed photo (design Seed: photograph + left-aligned overlay) */
+.hero { position: relative; background: url('images/hero-gudang-full.webp') center/cover no-repeat; padding: 120px 24px; }
+.hero::before { content:''; position:absolute; inset:0; background: rgba(28,58,19,0.55); }
+.hero-inner { position:relative; z-index:1; max-width: var(--page-max); margin:0 auto; }
+.hero h1 { font-size: 48px; font-weight: 350; line-height: 1.1; letter-spacing: -0.72px; margin-bottom: 24px; color: var(--color-snow-white); max-width: 640px; }
+.hero p { font-size: 16px; font-weight: 400; line-height: 1.5; color: rgba(252,252,247,0.9); margin-bottom: 32px; max-width: 480px; }
 .badge { display:inline-block; background: var(--color-lime-pulse); color: var(--color-forest-depths); border-radius: var(--radius-full); padding: 6px 14px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; }
 .btn-primary { background: var(--color-forest-depths); color: var(--color-snow-white); border:none; border-radius: var(--radius-full); padding: 16px 24px; font-size: 16px; font-weight: 400; cursor:pointer; text-decoration:none; display:inline-block; }
 .hero-img { width:100%; border-radius: var(--radius-cards); object-fit:cover; }
@@ -73,8 +75,8 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
 
 .foot { text-align:center; padding: 32px; font-size: 12px; color: var(--color-pewter); background: var(--color-snow-white); }
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; padding: 40px 20px; }
-  .hero h1 { font-size: 36px; }
+  .hero { padding: 80px 20px; }
+  .hero h1 { font-size: 32px; }
   .feature { grid-template-columns: 1fr; }
   .prod-grid { grid-template-columns: 1fr; }
   .trust { gap: 24px; }
@@ -89,13 +91,12 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
 </nav>
 
 <section class="hero">
-  <div>
+  <div class="hero-inner">
     <span class="badge">Borong B2B Malaysia</span>
     <h1>Shaker murah Malaysia. Untuk perniagaan anda.</h1>
     <p>Pembekal shaker borong untuk pengusaha supplement, gym, farmasi &amp; dropshipper seluruh Malaysia. Dari RM1.10/pcs, MOQ 104pcs, logo PERCUMA — pos seluruh negara.</p>
     <a class="btn-primary" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20shaker%20borong">📲 WhatsApp Sekarang</a>
   </div>
-  <img class="hero-img" src="images/hero-gudang.webp" alt="Stok shaker borong sedia - gudang Maryam Store">
 </section>
 
 <div class="trust">
