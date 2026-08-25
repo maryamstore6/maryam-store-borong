@@ -100,8 +100,16 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
 .final p { color: rgba(252,252,247,0.8); font-size: 16px; margin-bottom: 32px; }
 .btn-lime { background: var(--color-lime-pulse); color: var(--color-forest-depths); border:none; border-radius: var(--radius-full); padding: 16px 32px; font-size: 16px; font-weight: 500; cursor:pointer; text-decoration:none; display:inline-block; }
 
-.foot { text-align:center; padding: 32px; font-size: 12px; color: var(--color-pewter); background: var(--color-snow-white); }
-.foot a { color: var(--color-sage-moss); }
+.site-foot { background:var(--color-forest-depths); color:rgba(252,252,247,0.85); padding:56px 24px 24px; }
+.foot-wrap { max-width:var(--page-max); margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px; }
+.foot-brand { font-weight:500; font-size:18px; display:flex; align-items:center; gap:8px; color:var(--color-snow-white); margin-bottom:12px; }
+.foot-brand img { border-radius:6px; }
+.foot-desc { font-size:14px; line-height:1.5; color:rgba(252,252,247,0.7); }
+.foot-h { font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.5px; color:var(--color-lime-pulse); margin-bottom:12px; }
+.foot-col p { font-size:14px; line-height:1.7; margin-bottom:6px; color:rgba(252,252,247,0.85); }
+.foot-col a { color:rgba(252,252,247,0.85); text-decoration:none; }
+.foot-col a:hover { color:var(--color-lime-pulse); }
+.foot-copy { text-align:center; padding-top:32px; margin-top:32px; border-top:1px solid rgba(252,252,247,0.15); font-size:12px; color:rgba(252,252,247,0.6); }
 
 .modal { display:none; position:fixed; inset:0; background:rgba(28,58,19,0.9); z-index:100; padding:20px; overflow-y:auto; }
 .modal.open { display:flex; align-items:center; justify-content:center; }
@@ -388,6 +396,35 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
-<p class="foot">© 2026 Maryam Store, Melaka | <a href="cara-order.html">Cara Order</a> | <a href="faq.html">FAQ</a> | <a href="polisi-pulangan.html">Polisi</a></p>
+<footer class="site-foot">
+  <div class="foot-wrap">
+    <div class="foot-col">
+      <div class="foot-brand"><img src="images/logo.png" alt="Maryam Store" width="28" height="28"> Maryam Store</div>
+      <p class="foot-desc">Pemborong botol shaker &amp; botol minuman di Melaka. Harga kilang, logo PERCUMA, pos seluruh Malaysia.</p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-h">Hubungi Kami</div>
+      <p>📍 No 6, Jalan Meranti 2/1, Taman Merdeka,<br>Batu Berendam, 75350 Melaka</p>
+      <p>📞 <a href="tel:+60176055349">017-605 5349</a></p>
+      <p>📧 <a href="mailto:sejadahmaryam@gmail.com">sejadahmaryam@gmail.com</a></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-h">Waktu Operasi</div>
+      <p>🕘 Isnin–Jumaat: 9:00pg – 5:30ptg</p>
+      <p>🕘 Sabtu: 9:00pg – 12:00tgh</p>
+      <p>⛔ Ahad: Tutup</p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-h">Pautan</div>
+      <p><a href="/">Katalog</a></p>
+      <p><a href="supplement.html">Free Gift Supplement</a></p>
+      <p><a href="botol-shaker-malaysia.html">Botol Shaker Malaysia</a></p>
+      <p><a href="shaker-murah-malaysia.html">Shaker Murah</a></p>
+      <p><a href="tentang-kami.html">Tentang</a></p>
+      <p><a href="cara-order.html">Cara Order</a> | <a href="faq.html">FAQ</a> | <a href="polisi-pulangan.html">Polisi</a></p>
+    </div>
+  </div>
+  <p class="foot-copy">© 2026 Maryam Store, Melaka. Hak cipta terpelihara.</p>
+</footer>
 </body>
 </html>
