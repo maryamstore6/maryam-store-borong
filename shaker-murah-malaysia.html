@@ -110,22 +110,28 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
     <h2>Pilih shaker anda</h2>
     <p class="sub">Dua pilihan paling laris — harga kilang terus.</p>
     <div class="prod-grid">
-      <div class="prod-card">
-        <img src="images/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp" alt="Shaker Ekonomi 380ml - paling murah">
-        <div class="prod-info">
-          <span class="code-pill">PALING MURAH</span>
-          <div class="prod-name">Botol Shaker Ekonomi 380ml</div>
-          <div class="prod-price">Dari RM1.10/pcs</div>
-          <a class="btn-ghost" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20-%20Shaker%20Ekonomi%20380ml">Order →</a>
-        </div>
-      </div>
-      <div class="prod-card">
-        <img src="images/Shaker-Bar-350-ml-1786524559-af0337.webp" alt="Shaker Bar 350ml - ready stock">
+      <div class="prod-card" onclick="openGal(0)" style="cursor:pointer">
+        <img src="images/Shaker-Bar-350-ml-1786524559-af0337.webp" alt="Shaker Bar 350ml - ready stock Melaka">
         <div class="prod-info">
           <span class="code-pill">READY STOCK</span>
-          <div class="prod-name">Shaker Bar 350ml</div>
+          <div class="prod-name">1️⃣ Shaker Bar 350ml</div>
           <div class="prod-price">Dari RM1.40/pcs</div>
+          <p style="color:rgba(252,252,247,0.85);font-size:14px;line-height:1.5;margin-bottom:8px">Shaker bar 350ml dengan steel ball — campur protein shake tanpa ketulan. Food grade, 4 warna (pink, purple, white, green), penutup anti-bocor. Ready stock Melaka — pos esok.</p>
+          <p style="color:rgba(252,252,247,0.6);font-size:12px;margin-bottom:12px">RM1.53 (104pcs) • RM1.50 (500pcs) • RM1.40 (5,000pcs)</p>
           <a class="btn-ghost" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20-%20Shaker%20Bar%20350ml">Order →</a>
+          <p style="color:var(--color-lime-pulse);font-size:12px;margin-top:8px">🖼️ Klik untuk lihat galeri (8 gambar)</p>
+        </div>
+      </div>
+      <div class="prod-card" onclick="openGal(1)" style="cursor:pointer">
+        <img src="images/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp" alt="Shaker Botol Ekonomi 380ml - harga ekonomi">
+        <div class="prod-info">
+          <span class="code-pill">PALING MURAH</span>
+          <div class="prod-name">2️⃣ Shaker Botol Ekonomi 380ml</div>
+          <div class="prod-price">Dari RM1.10/pcs</div>
+          <p style="color:rgba(252,252,247,0.85);font-size:14px;line-height:1.5;margin-bottom:8px">Botol shaker ekonomi 380ml — harga paling rendah untuk free gift supplement &amp; barang promosi. 5 warna, cetakan 1-2 sisi dengan logo jenama anda. Import China 4-6 minggu, minimum 104pcs.</p>
+          <p style="color:rgba(252,252,247,0.6);font-size:12px;margin-bottom:12px">RM1.25 (500pcs) • RM1.20 (1,000pcs) • RM1.10 (10,000pcs)</p>
+          <a class="btn-ghost" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20-%20Shaker%20Ekonomi%20380ml">Order →</a>
+          <p style="color:var(--color-lime-pulse);font-size:12px;margin-top:8px">🖼️ Klik untuk lihat galeri (9 gambar)</p>
         </div>
       </div>
     </div>
@@ -169,5 +175,64 @@ document.addEventListener('click', function(e) {
 </script>
 
 <p class="foot">© 2026 Maryam Store, Melaka | <a href="https://borongshaker.com" style="color:var(--color-sage-moss)">Katalog penuh →</a></p>
+
+<!-- MODAL GALERI -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeGal()">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeGal()">✕</button>
+    <img class="modal-img" id="mImg" alt="Produk">
+    <div class="modal-strip" id="mStrip"></div>
+    <h3 id="mName"></h3>
+    <p class="modal-price" id="mPrice"></p>
+    <a class="morder" id="mOrder" target="_blank" rel="noopener">💬 Order WhatsApp</a>
+  </div>
+</div>
+
+<script>
+const GAL = [
+  { nama: "Shaker Bar 350ml - Ready Stock Melaka, Pos Segera",
+    ringkas: "Shaker Bar 350ml",
+    harga: "Dari RM1.40/pcs",
+    imgs: ["images/Shaker-Bar-350-ml-1786524559-af0337.webp","images/covers/1.webp","images/2-1786515006-73d61f.webp","images/shaker-transparent-350.webp","images/photo_2026-08-11_11-53-41.webp","images/photo_2026-08-11_11-53-35.webp","images/shaker-warna-2.webp","images/shaker-warna-1.webp"] },
+  { nama: "Shaker Botol Ekonomi 380ml - Free Logo Printing Borong",
+    ringkas: "Shaker Botol Ekonomi 380ml",
+    harga: "Dari RM1.10/pcs",
+    imgs: ["images/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp","images/photo_2026-08-11_12-13-57.webp","images/6.webp","images/7.webp","images/8.webp","images/photo_2026-08-11_12-14-01.webp","images/OCTaIeLjSldtJi8Fsv73LRxHHUjvsrsatTuZVRCn.webp","images/bXwKYBcT0dpSQYLmkaOxTWsdD66C9WsQtzSJTzpN.webp","images/photo_2026-08-11_12-14-05.webp"] }
+];
+let cur = 0, gi = 0;
+
+function openGal(i){
+  cur = i; gi = 0;
+  renderModal();
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeGal(){
+  document.getElementById("modal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+function renderModal(){
+  const g = GAL[cur];
+  document.getElementById("mImg").src = g.imgs[gi];
+  document.getElementById("mName").textContent = g.ringkas + " — " + g.harga;
+  document.getElementById("mOrder").href = "https://wa.me/60176055349?text=" + encodeURIComponent("Assalamualaikum, saya nak order - " + g.nama + " - berapa harga borong?");
+  document.getElementById("mStrip").innerHTML = g.imgs.map((s, i) =>
+    `<img src="${s}" class="${i===gi?'act':''}" onclick="event.stopPropagation();gi=${i};renderModal()" alt="gambar ${i+1}">`).join("");
+}
+</script>
+
+<style>
+.modal { display:none; position:fixed; inset:0; background:rgba(28,58,19,0.9); z-index:100; padding:20px; overflow-y:auto; }
+.modal.open { display:flex; align-items:center; justify-content:center; }
+.modal-box { background:var(--color-snow-white); border-radius:16px; max-width:720px; width:100%; padding:16px; position:relative; }
+.modal-x { position:absolute; top:12px; right:12px; background:none; border:none; font-size:20px; cursor:pointer; color:var(--color-forest-depths); z-index:2; }
+.modal-img { width:100%; max-height:60vh; object-fit:contain; border-radius:16px; }
+.modal-strip { display:flex; gap:8px; overflow-x:auto; padding:12px 0; }
+.modal-strip img { width:64px; height:64px; object-fit:cover; border-radius:8px; cursor:pointer; opacity:0.6; }
+.modal-strip img.act { opacity:1; border:2px solid var(--color-forest-depths); }
+#mName { font-size:20px; font-weight:350; color:var(--color-forest-depths); margin:8px 0 4px; }
+.modal-price { font-size:14px; color:var(--color-pewter); margin-bottom:12px; }
+.morder { display:inline-block; background:var(--color-forest-depths); color:var(--color-snow-white); border-radius:1000px; padding:12px 24px; text-decoration:none; font-size:14px; }
+</style>
 </body>
 </html>
