@@ -79,6 +79,9 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
 .prod-price { font-size: 14px; font-weight: 500; color: var(--color-forest-depths); }
 .prod-tier { font-size: 12px; color: var(--color-pewter); margin-top: 4px; }
 .prod-gal { font-size: 12px; color: var(--color-forest-depths); text-decoration: underline; cursor: pointer; margin-top: 2px; }
+.prod-status { font-size: 12px; font-weight: 500; margin-top: 4px; }
+.prod-status.ok { color: #2e7d32; }
+.prod-status.imp { color: #b36b00; }
 
 /* Testimoni */
 .testi-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -270,6 +273,7 @@ grid.innerHTML = produk.map((p, i) => `
       <div class="prod-name">${p.nama.split(' – ')[0]}</div>
       <div class="prod-price">Dari RM${p.harga.toFixed(2)}/pcs</div>
       <div class="prod-tier">${p.tier}</div>
+      <div class="prod-status ${/ready/i.test(p.nama) ? 'ok' : 'imp'}">${/ready/i.test(p.nama) ? '✓ Ready stock Melaka — boleh pos esok' : '✗ Import China — 4-6 minggu delivery'}</div>
       <div class="prod-gal">Klik untuk lihat galeri (${(p.galeri||[]).length} gambar)</div>
     </div>
   </div>`).join('');
