@@ -78,6 +78,7 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
 .prod-name { font-size: 18px; font-weight: 350; margin-bottom: 6px; color: var(--color-forest-depths); }
 .prod-price { font-size: 14px; font-weight: 500; color: var(--color-forest-depths); }
 .prod-tier { font-size: 12px; color: var(--color-pewter); margin-top: 4px; }
+.prod-gal { font-size: 12px; color: var(--color-forest-depths); text-decoration: underline; cursor: pointer; margin-top: 2px; }
 
 /* Testimoni */
 .testi-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -269,6 +270,7 @@ grid.innerHTML = produk.map((p, i) => `
       <div class="prod-name">${p.nama.split(' – ')[0]}</div>
       <div class="prod-price">Dari RM${p.harga.toFixed(2)}/pcs</div>
       <div class="prod-tier">${p.tier}</div>
+      <div class="prod-gal">Klik untuk lihat galeri (${(p.galeri||[]).length} gambar)</div>
     </div>
   </div>`).join('');
 
