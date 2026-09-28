@@ -1,0 +1,28 @@
+# KREDENSIAL — JANGAN COMMIT
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*credential*
+*secret*
+*password*
+.wp-adm
+.vps-root-pw
+wp-adm*
+*token*.json
+*service-account*.json
+
+# Backup / sementara
+*.bak
+*.zip
+*.tar.gz
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
