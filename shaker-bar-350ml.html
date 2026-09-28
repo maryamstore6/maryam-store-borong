@@ -78,6 +78,11 @@ body { font-family:var(--font-seed); background:var(--color-snow-white); color:v
 @media (max-width:768px) { .hero { padding:80px 20px; } .hero h1 { font-size:32px; } .prod-grid { grid-template-columns:1fr; } .trust { gap:24px; } }
 </style>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6c96262fd3b8443f9a3ef1fd775b9cbe"}'></script><!-- End Cloudflare Web Analytics -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/sinematik.css">
+<script src="/sinematik.js" defer></script>
 </head>
 <body>
 <nav class="nav">
@@ -104,7 +109,7 @@ body { font-family:var(--font-seed); background:var(--color-snow-white); color:v
     <p class="sub">Klik untuk lihat galeri penuh (8 gambar).</p>
     <div class="prod-grid">
       <div class="prod-card" onclick="openGal(0)">
-        <img src="images/Shaker-Bar-350-ml-1786524559-af0337.webp" alt="Botol Shaker Bar 350ml ready stock">
+        <img class="cut" src="images/cine/Shaker-Bar-350-ml-1786524559-af0337.webp" alt="Botol Shaker Bar 350ml ready stock">
         <div class="prod-info">
           <span class="code-pill">READY STOCK</span>
           <div class="prod-name">Botol Shaker Bar 350ml</div>
@@ -137,7 +142,7 @@ const GAL = [
   { nama: "Shaker Bar 350ml - 4 warna (putih, pink, hijau, purple)",
     ringkas: "Shaker Bar 350ml",
     harga: "Dari RM1.40/pcs",
-    imgs: ["images/Shaker-Bar-350-ml-1786524559-af0337.webp","images/covers/1.webp","images/2-1786515006-73d61f.webp","images/shaker-transparent-350.webp","images/photo_2026-08-11_11-53-41.webp","images/photo_2026-08-11_11-53-35.webp","images/shaker-warna-2.webp","images/shaker-warna-1.webp"] }
+    imgs: ["images/cine/Shaker-Bar-350-ml-1786524559-af0337.webp","images/covers/1.webp","images/2-1786515006-73d61f.webp","images/shaker-transparent-350.webp","images/photo_2026-08-11_11-53-41.webp","images/photo_2026-08-11_11-53-35.webp","images/shaker-warna-2.webp","images/shaker-warna-1.webp"] }
 ];
 let cur = 0, gi = 0;
 function openGal(i){ cur=i; gi=0; renderModal(); document.getElementById("modal").classList.add("open"); document.body.style.overflow="hidden"; }

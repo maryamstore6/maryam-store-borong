@@ -108,6 +108,11 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
 }
 </style>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6c96262fd3b8443f9a3ef1fd775b9cbe"}'></script><!-- End Cloudflare Web Analytics -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/sinematik.css">
+<script src="/sinematik.js" defer></script>
 </head>
 <body>
 
@@ -138,7 +143,7 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
     <p class="sub">Empat pilihan — harga kilang terus untuk free gift anda.</p>
     <div class="prod-grid">
       <div class="prod-card" onclick="openGal(0)">
-        <img src="images/Shaker-Bar-350-ml-1786524559-af0337.webp" alt="Botol Shaker Bar 350ml - ready stock Melaka">
+        <img class="cut" src="images/cine/Shaker-Bar-350-ml-1786524559-af0337.webp" alt="Botol Shaker Bar 350ml - ready stock Melaka">
         <div class="prod-info">
           <span class="code-pill">READY STOCK</span>
           <div class="prod-name">1️⃣ Botol Shaker Bar 350ml</div>
@@ -149,7 +154,7 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
         </div>
       </div>
       <div class="prod-card" onclick="openGal(1)">
-        <img src="images/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp" alt="Botol Shaker Ekonomi 380ml - harga ekonomi">
+        <img class="cut" src="images/cine/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp" alt="Botol Shaker Ekonomi 380ml - harga ekonomi">
         <div class="prod-info">
           <span class="code-pill">PALING MURAH</span>
           <div class="prod-name">2️⃣ Botol Shaker Ekonomi 380ml</div>
@@ -160,7 +165,7 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
         </div>
       </div>
       <div class="prod-card" onclick="openGal(2)">
-        <img src="images/Untitled-design-11-1786514979-c18e01.webp" alt="Premium Botol Shaker 250ml anti bocor">
+        <img class="cut" src="images/cine/Untitled-design-11-1786514979-c18e01.webp" alt="Premium Botol Shaker 250ml anti bocor">
         <div class="prod-info">
           <span class="code-pill">PREMIUM</span>
           <div class="prod-name">3️⃣ Premium Botol Shaker 250ml</div>
@@ -208,15 +213,15 @@ const GAL = [
   { nama: "Borong Botol Shaker 350ml - Ready Stock Melaka, Pos Segera",
     ringkas: "Botol Shaker Bar 350ml",
     harga: "Dari RM1.40/pcs",
-    imgs: ["images/Shaker-Bar-350-ml-1786524559-af0337.webp","images/covers/1.webp","images/2-1786515006-73d61f.webp","images/shaker-transparent-350.webp","images/photo_2026-08-11_11-53-41.webp","images/photo_2026-08-11_11-53-35.webp","images/shaker-warna-2.webp","images/shaker-warna-1.webp"] },
+    imgs: ["images/cine/Shaker-Bar-350-ml-1786524559-af0337.webp","images/covers/1.webp","images/2-1786515006-73d61f.webp","images/shaker-transparent-350.webp","images/photo_2026-08-11_11-53-41.webp","images/photo_2026-08-11_11-53-35.webp","images/shaker-warna-2.webp","images/shaker-warna-1.webp"] },
   { nama: "Botol Shaker Ekonomi 380ml - Free Logo Printing Borong",
     ringkas: "Botol Shaker Ekonomi 380ml",
     harga: "Dari RM1.10/pcs",
-    imgs: ["images/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp","images/photo_2026-08-11_12-13-57.webp","images/6.webp","images/7.webp","images/8.webp","images/photo_2026-08-11_12-14-01.webp","images/OCTaIeLjSldtJi8Fsv73LRxHHUjvsrsatTuZVRCn.webp","images/bXwKYBcT0dpSQYLmkaOxTWsdD66C9WsQtzSJTzpN.webp","images/photo_2026-08-11_12-14-05.webp","images/shaker-ekonomi-bulk.webp"] },
+    imgs: ["images/cine/Gemini_Generated_Image_w65zl7w65zl7w65z-1786516824-864160.webp","images/photo_2026-08-11_12-13-57.webp","images/6.webp","images/7.webp","images/8.webp","images/photo_2026-08-11_12-14-01.webp","images/OCTaIeLjSldtJi8Fsv73LRxHHUjvsrsatTuZVRCn.webp","images/bXwKYBcT0dpSQYLmkaOxTWsdD66C9WsQtzSJTzpN.webp","images/photo_2026-08-11_12-14-05.webp","images/shaker-ekonomi-bulk.webp"] },
   { nama: "Premium Botol Shaker 250ml Anti-Bocor - Silicone, Custom Logo",
     ringkas: "Premium Botol Shaker 250ml",
     harga: "Dari RM1.60/pcs",
-    imgs: ["images/Untitled-design-11-1786514979-c18e01.webp","images/2.webp","images/premium-250-1.webp","images/premium-250-2.webp","images/premium-250-3.webp","images/premium-shaker-250.webp"] },
+    imgs: ["images/cine/Untitled-design-11-1786514979-c18e01.webp","images/2.webp","images/premium-250-1.webp","images/premium-250-2.webp","images/premium-250-3.webp","images/premium-shaker-250.webp"] },
   { nama: "Botol Shaker Multifunction 350ml - No Leakage, Ready Stock Melaka",
     ringkas: "Botol Shaker Multifunction 350ml",
     harga: "Dari RM1.59/pcs",
