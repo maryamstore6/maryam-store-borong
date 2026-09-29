@@ -194,7 +194,8 @@ h1,h2,h3,.prod-name,.wrap h1,.wrap h2,.dark h2,.final h2,.hero h1{
   .foot{padding-bottom:86px}
   .prod-grid{grid-template-columns:1fr}
   .hero{min-height:70svh}
-  #cineFab{right:14px;bottom:16px;padding:12px 18px;font-size:13px}
+  #cineFab{right:14px;bottom:16px;padding:14px;border-radius:50%;font-size:0}
+  #cineFab svg{width:22px;height:22px}
   .nav-links{display:none}
 }
 @media (prefers-reduced-motion:reduce){
