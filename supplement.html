@@ -106,6 +106,22 @@ body { font-family: var(--font-seed); background: var(--color-snow-white); color
   .prod-grid { grid-template-columns: 1fr; }
   .trust { gap: 24px; }
 }
+
+/* ═══════════════ AKSESIBILITI (WCAG 2.2 AA) ═══════════════ */
+/* Fokus jelas untuk pengguna papan kekunci (WCAG 2.4.7) */
+:focus-visible{outline:3px solid #274d0c;outline-offset:3px;border-radius:8px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.btn:focus-visible,.ncta:focus-visible,.morder:focus-visible,.fab:focus-visible{outline:3px solid #274d0c;outline-offset:3px}
+/* Jangan buang outline tanpa pengganti */
+*:focus{outline-color:#274d0c}
+/* Sasaran sentuh >=44px (WCAG 2.5.8) */
+.nlinks a,.btn,.ncta,.morder,.fab,button{min-height:44px;min-width:44px}
+.nlinks a{display:inline-flex;align-items:center}
+/* Teks pembaca skrin sahaja */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Hormati prefers-reduced-motion (melengkapi yang sedia ada) */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
 </style>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6c96262fd3b8443f9a3ef1fd775b9cbe"}'></script><!-- End Cloudflare Web Analytics -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
