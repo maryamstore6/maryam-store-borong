@@ -14,25 +14,49 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Borong Botol Shaker Malaysia — Harga Kilang &amp; Logo PERCUMA">
 <meta name="twitter:image" content="https://borongshaker.com/images/hero-gudang-full.webp">
-<link rel="preload" as="image" href="/images/hero-gudang-full.webp" fetchpriority="high">
+
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://borongshaker.com/">
 <link rel="icon" href="/favicon.ico">
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '3054577544595377');
-fbq('track', 'PageView');
+/* Meta Pixel — ditunda sehingga halaman selesai dicat.
+   Menyekat thread utama sebelum cat pertama = LCP/TBT lebih teruk pada telefon.
+   PageView tetap dihantar (pada 'load' + idle), jadi penjejakan iklan tidak hilang. */
+(function(){
+  function loadPixel(){
+    if(window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','3054577544595377'); fbq('track','PageView');
+  }
+  if(document.readyState==='complete'){ loadPixel(); return; }
+  window.addEventListener('load', function(){
+    if('requestIdleCallback' in window){ requestIdleCallback(loadPixel,{timeout:2000}); }
+    else { setTimeout(loadPixel,1); }
+  });
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=3054577544595377&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 <style>
+/* ═══ Instrument Serif — HOS SENDIRI (elak CSS render-blocking pihak ketiga) ═══ */
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
+src:url('/fonts/instrument-serif-400-latin.woff2') format('woff2');
+unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
+src:url('/fonts/instrument-serif-400-latin-ext.woff2') format('woff2');
+unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;
+src:url('/fonts/instrument-serif-400-italic-latin.woff2') format('woff2');
+unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;
+src:url('/fonts/instrument-serif-400-italic-latin-ext.woff2') format('woff2');
+unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
 :root {
   --color-forest-depths: #1c3a13;
   --color-lime-pulse: #d3fa99;
@@ -153,6 +177,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* Pautan pengaki: sasaran sentuh cukup besar (WCAG 2.5.8, min 24px) */
+footer a,.cred-col a,.cred-links a,.cred-grid a{display:inline-block;min-height:24px;padding:4px 0;line-height:1.5}
+/* Pautan hubungi (telefon/e-mel): 44px — pelanggan menelefon dari telefon */
+footer a[href^="tel:"],footer a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px;padding:6px 0}
 </style>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6c96262fd3b8443f9a3ef1fd775b9cbe"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
@@ -280,7 +309,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 
-<script src="products.js"></script>
+<script src="products.js" defer></script>
 <script>
 const grid = document.getElementById('prodGrid');
 grid.innerHTML = produk.map((p, i) => `
