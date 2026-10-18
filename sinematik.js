@@ -30,7 +30,15 @@
     '.wrap > h1, .wrap > h2, .wrap > p, .wrap > ul, .wrap > table, .card, .prod-card, .feature, .feat-point, .final h2, .trust span'
   );
   var targets = [];
-  for (var i = 0; i < pick.length; i++) { pick[i].classList.add('cine-r'); targets.push(pick[i]); }
+  /* Elemen yang SUDAH kelihatan (atas lipatan) JANGAN disembunyikan:
+     menyembunyikannya menangguhkan LCP (elemen LCP mesti dicat serta-merta)
+     dan menjadikan hero kosong kalau JS lewat atau gagal dimuatkan.
+     Hanya kandungan BAWAH lipatan dianimasikan. */
+  var _vh = window.innerHeight || document.documentElement.clientHeight;
+  for (var i = 0; i < pick.length; i++) {
+    if (pick[i].getBoundingClientRect().top < _vh * 0.92) continue;
+    pick[i].classList.add('cine-r'); targets.push(pick[i]);
+  }
   if (reduce) {
     targets.forEach(function (el) { el.classList.add('in'); });
   } else if ('IntersectionObserver' in window) {

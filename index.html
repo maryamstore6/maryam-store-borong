@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
 <title>Borong Botol Shaker Malaysia — Harga Kilang &amp; Logo PERCUMA</title>
 <meta name="description" content="13+ jenis botol shaker &amp; botol minuman borong dari kilang di Melaka. Bawah RM2.00/pcs, MOQ 104pcs, logo PERCUMA, pos seluruh Malaysia. WhatsApp 017-6055349.">
 <meta property="og:type" content="website">
@@ -63,8 +64,9 @@ body::after{content:'';position:fixed;inset:0;z-index:59;pointer-events:none;
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 .eyebrow{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .disp{font-family:var(--disp);font-weight:400;letter-spacing:-.015em;line-height:1.02}
-.reveal{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease)}
-.reveal.in{opacity:1;transform:none;filter:none}
+.reveal{transition:opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease)}
+.js .reveal{opacity:0;transform:translateY(28px);filter:blur(6px)}
+.js .reveal.in{opacity:1;transform:none;filter:none}
 .reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}.reveal.d4{transition-delay:.48s}
 
 /* ---------- letterbox + progress + nav ---------- */
@@ -271,7 +273,7 @@ footer.credits{background:#efeee7;border-top:1px solid var(--line-soft);padding:
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none;filter:none}
+  .reveal,.js .reveal{opacity:1;transform:none;filter:none}
   html{scroll-behavior:auto}
 }
 
@@ -322,20 +324,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="hero-bg"></div>
   <div class="hero-veil"></div>
   <div class="hero-in wrap">
-    <p class="eyebrow reveal">Pemborong Botol Shaker — Melaka, Malaysia</p>
-    <h1 class="disp reveal d1">Botol shaker borong.<br><em>Harga kilang, logo percuma.</em></h1>
-    <p class="lead reveal d2">13+ jenis botol shaker &amp; botol minuman dari kilang di Melaka. Bawah RM2.00/pcs, MOQ 104pcs, ready stock pos esok.</p>
-    <div class="cta-row reveal d3">
+    <p class="eyebrow">Pemborong Botol Shaker — Melaka, Malaysia</p>
+    <h1 class="disp">Botol shaker borong.<br><em>Harga kilang, logo percuma.</em></h1>
+    <p class="lead">13+ jenis botol shaker &amp; botol minuman dari kilang di Melaka. Bawah RM2.00/pcs, MOQ 104pcs, ready stock pos esok.</p>
+    <div class="cta-row">
       <a class="btn btn-lime" href="https://wa.me/60176055349?text=Assalamualaikum%2C%20saya%20nak%20order%20borong">WhatsApp Sekarang</a>
       <a class="btn btn-ghost" href="#koleksi">Lihat koleksi ↓</a>
     </div>
-    <div class="hud reveal d4">
+    <div class="hud">
       <span>MOQ <b>104 pcs</b></span>
       <span>Bawah <b>RM2.00/pcs</b></span>
       <span>Logo <b>PERCUMA</b></span>
       <span>Pos <b>RM10 Semenanjung</b></span>
     </div>
-    <p style="margin-top:18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(22,41,15,.92)" class="reveal d4">No 6, Jalan Meranti 2/1, Taman Merdeka — Batu Berendam, Melaka</p>
+    <p style="margin-top:18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(22,41,15,.92)" >No 6, Jalan Meranti 2/1, Taman Merdeka — Batu Berendam, Melaka</p>
   </div>
   <div class="hero-side">Maryam Store — Pemborong Shaker, Melaka</div>
   <div class="scroll-cue"><i></i> Skrol</div>
@@ -362,10 +364,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 
 <div class="stats">
-  <div class="stat"><div class="n" data-count="100" data-suffix="+">0</div><div class="l">Peniaga dilayan</div></div>
-  <div class="stat"><div class="n" data-count="8" data-suffix="/10">0</div><div class="l">Repeat buyer</div></div>
-  <div class="stat"><div class="n" data-count="13" data-suffix="+">0</div><div class="l">Jenis botol</div></div>
-  <div class="stat"><div class="n" data-count="104" data-suffix="pcs">0</div><div class="l">MOQ minimum</div></div>
+  <div class="stat"><div class="n" data-count="100" data-suffix="+">100+</div><div class="l">Peniaga dilayan</div></div>
+  <div class="stat"><div class="n" data-count="8" data-suffix="/10">8/10</div><div class="l">Repeat buyer</div></div>
+  <div class="stat"><div class="n" data-count="13" data-suffix="+">13+</div><div class="l">Jenis botol</div></div>
+  <div class="stat"><div class="n" data-count="104" data-suffix="pcs">104pcs</div><div class="l">MOQ minimum</div></div>
 </div>
 
 <section class="chap" id="koleksi">

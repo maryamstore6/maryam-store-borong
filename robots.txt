@@ -1,5 +1,87 @@
+# robots.txt — borongshaker.com (Maryam Store, Batu Berendam, Melaka)
+# Dikemas kini: 2026-10-18
+#
+# POLISI: tapak ini TERBUKA kepada semua crawler, termasuk crawler AI
+# (carian AI dan latihan model). Kami mahu ditemui dan dipetik oleh enjin AI.
+# JANGAN tambah Disallow untuk crawler carian AI.
+#
+# Nota: baris Content-Signal ialah deklarasi keutamaan (Cloudflare Content
+# Signals Policy, CC0 + draf IETF). Ia keutamaan, bukan sekatan.
+# Kami TIDAK menetapkan ai-train=no — menyekat latihan model boleh
+# mengurangkan kehadiran jangka panjang dalam jawapan AI.
+#
+# PENTING: setiap kumpulan bernama mengulang Disallow: /admin/ — bila satu
+# user-agent ada kumpulan sendiri, ia TIDAK lagi jatuh ke kumpulan "*",
+# jadi tanpa baris ini crawler itu boleh masuk /admin/.
+
+# ── Kumpulan umum: semua crawler carian & AI carian ───────────────────────
 User-agent: *
 Allow: /
 Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+# ── Crawler carian AI (pembentangan & petikan) ───────────────────────────
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+# ── Crawler latihan model (DIBENARKAN dengan sengaja) ────────────────────
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+# ── Token kawalan (mengawal latihan/grounding, bukan crawler berasingan) ──
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+# ── Ejen yang dicetuskan pengguna (deklarasi hasrat sahaja) ───────────────
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
+
+User-agent: Google-Agent
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes
 
 Sitemap: https://borongshaker.com/sitemap.xml
